@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+}
+
+.glider-contain {
+  width: 90%;
+  max-width: 997px;
+  margin: 0 auto;
+}
+
+.glider-slide {
+  min-height: 150px;
+}
+
+.glider-slide img {
+  width: 100%;
+}
+
+@-ms-viewport {
+  width: auto !important;
+}

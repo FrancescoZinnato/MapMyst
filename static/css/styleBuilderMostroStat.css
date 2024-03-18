@@ -1,0 +1,167 @@
+/* Quadrato verde generico in cui viene inserito il builder */
+#formStatistiche {
+  font-family: MentorSansStd;
+  font-size: 0.95em;
+  box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+  margin-right: 3vw;
+  display: grid;
+  padding: 8px;
+  background-color: #4D5C2D;
+}
+
+/* Barre verdi dei titoli delle sezioni */
+.titolo {
+    color: white;
+    background-color: #4D5C2D;
+    font-family: MentorSansStd;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    padding: 0.15em;
+}
+
+/* Sezione informazioni generali */
+#infogenerali {
+    display: grid;
+    gap: 8px;
+    grid-template-columns: repeat(6, 1fr);
+    align-items: end;
+    background-color: #b3b19e;
+    padding: 8px 8px 4px 8px;
+  }
+
+  /* Titolo della sezione intera riga */
+  #infogenerali > :first-child,
+  #infogenerali > :last-child {
+    grid-column: 1/-1;
+  }
+
+  /* Nome in grande */
+  #infogenerali > :nth-child(2) {
+    grid-column: span 2;
+  }
+
+  /* Testo sulla sinistra per box testo numerici */
+  #infogenerali input[type="number"] {
+    text-align: left;
+    padding-left: 0%;
+  }
+  
+  /* Stile aggiuntivo per il riquadro "Guida" */
+  #infogenerali > :nth-child(6),
+  #infogenerali > :nth-child(12) {
+    color: black;
+    height: 1.85em;
+    background-color: #e7e5d4;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center; /* Centra verticalmente */
+    justify-content: center; /* Centra orizzontalmente */
+  }
+  
+  /* Hover per il riquadro guida */
+  #infogenerali > :nth-child(6):hover,
+  #infogenerali > :nth-child(7):hover {
+    box-shadow: 0px 0px 1px 4px #868679;
+  }
+  
+  /* Sezione punteggi di caratteristica */
+  #caratteristiche {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Specifica le colonne principali */
+    grid-auto-columns: 1fr; /* Specifica la dimensione per le colonne generate automaticamente */
+    gap: 8px;
+    align-items: end;
+    background-color: #b3b19e;
+    padding: 8px 8px 4px 8px;
+  }
+  
+  /* Estendi il titolo su tutta la riga */
+  #caratteristiche > :nth-child(1) {
+    grid-column: span 6;
+  }
+
+  /* Estendi il pulsante su tutta la riga */
+  #caratteristiche > :nth-child(14) {
+    grid-column: span 6;
+  }
+  
+  /* Sezione punti ferita e difese */
+  #pf-difese {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr); /* Specifica le colonne principali */
+    grid-auto-columns: 1fr; /* Specifica la dimensione per le colonne generate automaticamente */
+    gap: 8px;
+    align-items: end;
+    background-color: #b3b19e;
+    padding: 8px 8px 4px 8px;
+  }
+  
+  /* Estendi il titolo su tutta la riga */
+  #pf-difese > :nth-child(1) {
+    grid-column: 1/-1;
+  }
+  
+  /* Sezione altre statistiche */
+  #altreStatistiche {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-columns: 1fr;
+    gap: 8px;
+    align-items: end;
+    background-color: #b3b19e;
+    padding: 8px 8px 4px 8px;
+  }
+
+    
+  /* Span titolo */
+  #altreStatistiche > :nth-child(1) {
+    grid-column: 1/-1;
+  }
+
+  /* Testo al centro per tutti i box testo */
+  #altreStatistiche [type="text"] {
+    text-align: center;
+  }
+  
+  /* Stile specifico per abilità con addestramento */
+  #altreStatistiche > :nth-child(8) {
+    grid-column: 1/-1;
+    text-align: left;
+  }
+  
+  /* Immunità, resistenze e vulnerabilità */
+  #immunitaEtc {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-columns: 1fr;
+    gap: 8px;
+    align-items: end;
+    background-color: #b3b19e;
+    padding: 8px 8px 4px 8px;
+  }
+  
+  #immunitaEtc > :nth-child(1) {
+    grid-column: 1/-1;
+  }
+  
+  /* Dettagli narrativi */
+  #narrativi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    align-items: end;
+    background-color: #b3b19e;
+    padding: 10px;
+    margin-bottom: 8px;
+  }
+  
+  #narrativi > :nth-child(1),
+  #narrativi > :nth-child(4) {
+    grid-column: 1/-1;
+  }
+
+  #builder-statistiche-menu {
+    display: grid;
+    gap: 8px;
+  }

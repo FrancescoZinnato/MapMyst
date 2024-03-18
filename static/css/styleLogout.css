@@ -1,0 +1,51 @@
+/* Importazione dei font */
+@font-face {
+  src: url(../font/MentorSansStd.otf);
+  font-family: MentorSansStd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-image: url("../img/Logout.png") ;
+  height: calc(100vh - 150px);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: MentorSansStd;
+}
+
+.pagina {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagina>div {
+  justify-content: space-around;
+  align-self: center;
+}
+
+.pagina h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: xx-large;
+    text-shadow: 2px 2px 5px black;
+}
+
+.pagina a {
+    color: #ad874f;
+    transition: color 1s;
+}
+
+.pagina a:hover {
+    color: gold;
+}

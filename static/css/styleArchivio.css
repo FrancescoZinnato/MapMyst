@@ -1,0 +1,311 @@
+/* Importazione dei font */
+@font-face {
+    src: url(../font/MentorSansStd.otf);
+    font-family: MentorSansStd;
+}
+
+/* Sizing di tutti gli elementi */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sfondo per il body */
+body {
+    background-image: url("../img/Archivio.png");
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: MentorSansStd;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #333; 
+    font-family: MentorSansStd;
+}
+
+#nav .btn.active {
+    background-color: #ad874f;
+}
+
+a.active {
+    color: #333;
+}
+
+#nav .btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#nav .btn:hover {
+    background-color: #e3e3e3; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+.btn {
+    background-color: #333;
+    border: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: MentorSansStd;
+}
+
+.btn > a {
+    text-decoration: none;
+    color: #ad874f;
+}
+
+a {
+    text-decoration: none;
+    color: #ad874f;
+    font-family: MentorSansStd;
+}
+
+/* ------------------------- FINE CODICE DARIO ---------------------------- */
+
+/* Wrapper per l'intera viewport (navbar a parte) */
+#wrapper {
+    display: grid;
+    justify-content: center;
+    width: 100vw;
+    row-gap: 2em;
+    margin-top: 2em;
+}
+
+/* Cella della grid contenente i pulsanti */
+.contenitore-pulsanti {
+    display: flex;
+    justify-content: center;
+    column-gap: 1em;
+}
+
+/* Stile dei pulsanti */
+.contenitore-pulsanti button {
+    font-family: MentorSansStd;
+    color: white;
+    background-color: rgb(200, 0, 0);
+    border: none;
+    border-radius: 4em;
+    font-size: 1em;
+    padding: 0.5em 1em 0.5em 1em;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 0.5em 0.2em rgba(0, 0, 0, 0.15);
+    }
+    .contenitore-pulsanti button:hover {
+        box-shadow: 0 0 0 0.3em rgba(255, 255, 255, 1);
+        scale: 1.1;
+    }
+    .contenitore-pulsanti button:active {
+        opacity: 0.6;
+        scale: 1.05;
+    }
+
+/* Stile punsante mostri */
+#pulsanteMostri {
+    background-color: #4D5C2D;
+}
+
+/* Stile punsante avventurieri */
+#pulsanteAvventurieri {
+    background-color: #183D5E;
+}
+
+/* Stile pulsante mappe */
+#pulsanteMappe {
+    background-color: #5B1F34;
+}
+
+/* Contenitore delle tabelle */
+.tabella {
+    font-size: 1.1em;
+    border-radius: 0.7em 0.7em 0.7em 0.7em;
+    box-shadow: 0 0 1em 0.3em rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+
+/* Header delle tabelle */
+.headerTabella {
+    color: #ffffff;
+    border-radius: 0.7em 0.7em 0em 0em;
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* Righe delle tabelle */
+.rigaTabella {
+    /* ProprietÃ  generiche */
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+/* Righe pari delle tabelle */
+.rigaTabella:nth-child(even) {
+    background-color: #E7E5D4;
+}
+
+/* Righe dispari delle tabelle */
+.rigaTabella:nth-child(odd) {
+    background-color: #CCCAB5;
+}
+
+/* Stondatura prima riga */
+.headerTabella + * {
+    border-radius: 0.7em 0.7em 0em 0em;
+}
+
+/* Stondatura ultima riga */
+.tabella > :last-child {
+    border-radius: 0em 0em 0.7em 0.7em;
+}
+
+/* Tabelle dei mostri */
+#tabellaMostri {
+    background-color: #4D5C2D;
+}
+
+/* Stile dell'header delle tabelle dei mostri */
+#tabellaMostri > :first-child {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1.8em;
+    align-items: center;
+}
+
+/* Stile delle righe delle tabelle dei mostri */
+#tabellaMostri > * {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 1.8em;
+    align-items: center;
+}
+
+/* Tabelle degli avventurieri */
+#tabellaAvventurieri {
+    background-color: #183D5E;
+    display: none;
+}
+
+/* Stile dell'header delle tabelle dei mostri */
+#tabellaAvventurieri > :first-child {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1.8em;
+    align-items: center;
+}
+
+/* Stile delle righe delle tabelle dei mostri */
+#tabellaAvventurieri > * {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: 1.8em;
+    align-items: center;
+}
+
+/* Tabelle delle mappe */
+#tabellaMappe {
+    background-color: #5B1F34;
+    display: none;
+}
+
+/* Stile dell'header delle tabelle dei mostri */
+#tabellaMappe > :first-child {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.8em;
+    align-items: center;
+}
+
+/* Stile delle righe delle tabelle dei mostri */
+#tabellaMappe > * {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1.8em;
+    align-items: center;
+    justify-content: center;
+}
+
+#sceltaBuilder{
+   position: absolute;
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   height: 70px;
+   width: 200px;
+   top: 0px;
+   left: 0px;
+   background-color: #333;
+   display: none;
+   border: 3px solid #ad874f;
+   border-radius: 5px;
+   z-index: -9999;
+}
+
+#sceltaBuilder a{
+   text-decoration: none;
+   font-size: 22px;
+   color: #fff;
+   text-shadow: 2px 2px 5px black;
+   font-family: MentorSansStd;
+}
+
+#sceltaBuilder a:hover{
+   color: gold;
+   transition: 1s linear;
+}
+
+#buildertag{
+	color: #ad874f;
+	font-family: MentorSansStd !important;
+}
+
+.sFoto {
+  height: 100%;
+  align-self: center;
+}
+
+.sFoto > * {
+  height: 50px;
+  vertical-align: middle;
+}
+
+.rigaMappa {
+    /* Assicurati di avere un'altezza sufficiente per la riga, ad esempio: */
+    min-height: 100px;
+}
+
+/*.rigaMappa{
+	height: 100px !important;
+}*/
+
+.rigaMappa > *{
+	margin-top: 2.5em;
+	vertical-align: middle;
+}
+
+#avviso, #avviso2{
+	color: rgb(255, 255, 255);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: xx-large;
+    text-shadow: 2px 2px 5px black;
+}
+
+#avviso a, #avviso2 a{
+	color: #ad874f;
+}
+
+#avviso a:hover, #avviso2 a:hover{
+	transition: 1s linear;
+	color: gold;
+}
+
+#uploadMappa{
+	cursor: pointer;
+}

@@ -1,0 +1,122 @@
+/* Importazione dei font */
+@font-face {
+  src: url(../font/MentorSansStd.otf);
+  font-family: mentor;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('../img/Login.png');
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: MentorSansStd;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: MentorSansStd;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px; /* Limita la larghezza per evitare che si espanda troppo su schermi grandi */
+  
+}
+
+form {
+  width: 100%;
+  padding: 40px;
+  background: linear-gradient(45deg, #1e1e1e, #2f2f2fef);
+  border: 3px solid #6c432b;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  color: #ad874f;
+  border-radius: 6px;
+
+}
+
+form h3 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 5%;
+}
+
+.form-holder {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.form-holder span {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: #ad874f;
+  font-size: 20px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.2em;
+  border: none;
+  background-color: #383838;
+  color: #ad874f;
+  border-radius: 25px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  background: #6c432b;
+  color: #ad874f;
+  font-size: 1.2em;
+  cursor: pointer;
+  border-radius: 25px;
+  transition: background-color 0.6s ease;
+}
+
+button:hover {
+  background: #8c5f3f;
+}
+
+p {
+  margin-top: -30px;
+  font-size: 1.2em;
+  color: #ffffff;
+}
+
+a {
+  color: #ad874f;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: gold;
+}
+
+/* Media Query per dispositivi più piccoli */
+@media only screen and (max-width: 768px) {
+  .inner {
+    width: 90%; /* Riduci la larghezza per adattarsi a schermi più piccoli */
+  }
+  form {
+    padding: 30px;
+  }
+  form h3 {
+    font-size: 1.8em;
+  }
+  .form-control,
+  button {
+    font-size: 1em;
+  }
+}

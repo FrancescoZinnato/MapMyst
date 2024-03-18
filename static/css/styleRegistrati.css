@@ -1,0 +1,110 @@
+/* Importazione dei font */
+@font-face {
+  src: url(../font/MentorSansStd.otf);
+  font-family: MentorSansStd;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../img/Login.png");
+  background-size: 100% 100%; /* L'immagine coprirà completamente l'intero spazio disponibile /
+    background-position: center; / Centra l'immagine /
+    background-attachment: fixed; / L'immagine di sfondo rimane fissa durante lo scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Assicura che i margini e i padding siano inclusi nelle dimensioni degli elementi */
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+}
+
+form {
+  width: 100%;
+  padding: 80px;
+  background: linear-gradient(45deg, #1e1e1e, #2f2f2fef);
+  border: 3px solid #6c432b;
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.5);
+  color: #ad874f;
+  font-family: MentorSansStd;
+  border-radius: 6px;
+}
+
+form h3 {
+  text-align: center;
+  font-size: 200%;
+  margin-bottom: 10%;
+  color: #ad874f;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  font-family: MentorSansStd;
+}
+
+.form-holder {
+  position: relative;
+  font-family: MentorSansStd;
+  margin-bottom: 20px;
+}
+
+.form-holder span {
+  position: center;
+  top: 10px;
+  left: 10px;
+  color: #ad874f;
+  font-size: 28px;
+}
+
+.form-control {
+  width: calc(100%);
+  padding: 15px 20px;
+  font-size: 22px;
+  border: none;
+  background-color: #383838;
+  color: #ad874f;
+  border-radius: 25px;
+  font-family: MentorSansStd;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  border: none;
+  background: #6c432b;
+  color: #ad874f;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 110px;
+  transition: background-color 0.6s ease;
+  font-family: MentorSansStd;
+}
+
+button:hover {
+  background: #8c5f3f;
+}
+.error-message {
+  color: rgb(255, 255, 255);
+  font-size: 0.8em;
+}
+
+.error-messageu {
+  color: rgb(255, 255, 255);
+  font-size: 0.8em;
+}
+
+.error-messagee {
+  color: rgb(255, 255, 255);
+  font-size: 0.8em;
+}

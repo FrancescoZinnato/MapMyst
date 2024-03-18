@@ -1,0 +1,81 @@
+#formTratti {
+    font-family: MentorSansStd;
+    font-size: 0.95em;
+    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.5);
+    margin-right: 3vw;
+    display: none;
+    padding: 8px;
+    background-color: #4D5C2D;
+}
+
+.tratto{
+    background-color: #b3b19e;
+    display: grid;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.tratto > :last-child {
+    grid-column: 1/-1;
+}
+
+.aura {
+    background-color: #b3b19e;
+    display: grid;
+    grid-template-columns: 3fr 1fr 1fr;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.aura > :nth-child(4) {
+    grid-column: 1/-1;
+}
+
+.aura > :last-child {
+    grid-column: 1/-1;
+}
+
+/* Pulsanti nel footer */
+.builder-tratti-menu {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+/* Ultimo pulsante occupa l'intera riga */
+.builder-tratti-menu > :last-child {
+    grid-column: 1/-1;
+}
+
+.potere{
+    background-color: #b3b19e;
+    padding: 8px;
+    margin-bottom: 8px;
+    display: grid;
+    grid-auto-columns: 1fr;
+    gap: 8px;
+    align-items: end;
+    grid-template-areas: /* 12 colonne*/
+    "azione tipo nome nome keywords keywords ricarica note note note difesaAttaccata difesaAttaccata "
+    "descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione selectBersagli selectBersagli"
+    "descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione sogliaDanni sogliaDanni"
+    "descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione descrizione attaccoSuggerito dannoSuggerito"
+    "eliminaPotere eliminaPotere eliminaPotere eliminaPotere eliminaPotere eliminaPotere eliminaPotere eliminaPotere eliminaPotere eliminaPotere calcolaDanno calcolaDanno";
+}
+
+.potere > :nth-child(1) {grid-area: azione;}
+.potere > :nth-child(2) {grid-area: tipo;}
+.potere > :nth-child(3) {grid-area: nome;}
+.potere > :nth-child(4) {grid-area: keywords;}
+.potere > :nth-child(5) {grid-area: ricarica;}
+.potere > :nth-child(6) {grid-area: note;}
+.potere > :nth-child(7) {grid-area: descrizione;}
+.potere > :nth-child(8) {grid-area: difesaAttaccata; text-align: center;}
+.potere > :nth-child(9) {grid-area: selectBersagli; text-align: center;}
+.potere > :nth-child(10) {grid-area: sogliaDanni; text-align: center;}
+.potere > :nth-child(11) {grid-area: attaccoSuggerito; text-align: center;}
+.potere > :nth-child(12) {grid-area: dannoSuggerito; text-align: center;}
+.potere > :nth-child(13) {grid-area: calcolaDanno;}
+.potere > :nth-child(14) {grid-area: eliminaPotere;}

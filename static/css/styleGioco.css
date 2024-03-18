@@ -1,0 +1,661 @@
+/* Importazione dei font */
+@font-face {
+    src: url(../font/MentorSansStd.otf);
+    font-family: MentorSansStd;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: MentorSansStd;
+}
+
+/* navigazione */
+#nav{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 50px;
+    background-color: #333
+}
+
+#nav .btn.active {
+    background-color: #ad874f;
+  }
+  
+  a.active{
+  color: #333;
+  }
+
+  #nav .btn {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#nav .btn:hover {
+    background-color: #e3e3e3; /* Cambia il colore di sfondo al passaggio del mouse */
+}
+
+/* fine navigazione */
+
+/* gestione mappa */
+#sfondo{
+    z-index: 0;
+    height: calc(100vh - 50px);
+    position: relative;
+    /* overflow: auto; */
+}
+
+#mappa{
+    height: 100%;
+    width: 100%;
+    pointer-events: none;
+    position: absolute;
+}
+/* fine gestione mappa */
+
+/* gestione tokens */
+.token{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    z-index: 99;
+    cursor: pointer;
+}
+
+.token>img{
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+}
+/* fine gestione tokens */
+
+/* gestione caselle */
+#grigliaDaSalvare{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 8; /*Questo contenitore mi serve solo per recuperare il valore della griglia di gioco*/
+}
+
+#contenitoreCaselle{
+    position: absolute;
+    display: grid !important;
+    height: 100%;
+    width: 100%;
+    z-index: 9;
+}
+
+.casella{
+    position: relative;
+    border: 1px solid black;
+    height: 100%;
+    width: 100%;
+}
+/* fine gestione caselle */
+
+/* gestione sidebars */
+#sidebar {
+    width: 25%;
+    height: 100%;
+    background: #333;
+    opacity: 0;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: 0.6s linear;
+    z-index: -9999;
+    display: grid;
+    grid-template-rows: 1fr 2fr 2fr 2fr 2fr 2fr;
+    justify-items: center;
+    /* background:linear-gradient() */
+}
+
+#sidebar2 {
+    width: 20%;
+    height: 100%;
+    background: #333;
+    opacity: 0;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: 0.6s linear;
+    z-index: -9999;
+    display: grid;
+    grid-template-rows: repeat(7, 1fr);
+    /* row-gap: 5px; */
+    justify-items: center;
+    /*background:linear-gradient() */
+}
+
+#sidebar > select{
+    width: 60%;
+    height: 25%;
+}
+
+#sidebar2 > select{
+    width: 35%;
+}
+
+.styleSelect{
+    font-family: MentorSansStd;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 3px solid #8B4513; /* Marrone scuro */
+    background-color: #F5DEB3; /* Wheat */
+    color: #8B4513; /* Marrone scuro */
+    text-align: center;
+}
+
+.salva{
+    display: block;
+    justify-content: space-around;
+    width: 90%;
+}
+
+@media only screen and (max-width: 834px){
+    .salva{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .salva .bottone{
+        justify-self: center;
+    }
+
+    .salva lord-icon{
+        width: 15px;
+        height: 15px;
+    }
+
+    .bottone span{
+        font-size: 12px;
+    }
+}
+
+.salva > button {
+    margin-top:5px;
+    margin-bottom: 5px;
+    width: 40%;
+    height: 35%; 
+    text-align: center;
+}
+
+.bottone{ /* stile per i bottoni carica e salva */
+    font-family: MentorSansStd;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 3px solid #8B4513; /* Marrone scuro */
+    background-color: #F5DEB3; /* Wheat */
+    color: #8B4513; /* Marrone scuro */
+    text-align: center;
+}
+
+.bottone:hover{
+    background-color: #f7efe2;
+}
+/* Stili per la finestra modale */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: #F5DEB3;
+    border: 4px solid #8b4513;
+    margin: auto;
+    padding: 20px;
+    width: 40%;
+    border-radius: 6px;
+}
+
+.modal input{
+    font-family: MentorSansStd;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 2px;
+    background-color: #fff;
+    border: 3px solid #8B4513; /* Marrone scuro */
+    color: black; /* Marrone scuro */
+    text-align: center;
+    width: 100%;
+}
+
+.modal button {
+    font-family: MentorSansStd;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 2px;
+    border: 3px solid #8B4513; /* Marrone scuro */
+    color: #ffffff; /* Marrone scuro */
+    text-align: center;
+    width: 100%;
+}
+
+.modal button {
+    background-color: #6f3003; /* Wheat */
+    margin-top: 10px;
+}
+
+#modalSalva > .modal-content, #modalCarica > .modal-content, #modalMappa > .modal-content{
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+}
+
+#selezionaPartita{
+    font-family: MentorSansStd;
+    font-size: 20px;
+    border-radius: 6px;
+    padding: 2px;
+    background-color: #8B4513;
+    border: 3px solid #8B4513; /* Marrone scuro */
+    color: #e8e7e3; /* Marrone scuro */
+    text-align: center;
+    width: 100%;
+}
+
+.close {
+    color: #8B4513;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    width: 2%;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .modal-content {
+        width: 45%;
+    }
+}
+
+.tastoX {
+    position: absolute;
+    left: 93%;
+    width: 42px;
+    height: 42px;
+    top: 4px; /* allinea il tasto X a "mostri" e "avventurieri"*/
+}
+
+.tastoX::before {
+    content: "";
+    position: absolute;
+    width: 20px; /* Imposta il diametro del cerchio bianco */
+    height: 20px; /* Imposta il diametro del cerchio bianco */
+    background-color: #fff; /* Colore del cerchio bianco */
+    border-radius: 50%; /* Rende il cerchio bianco rotondo */
+    top: 50%; /* Posiziona il cerchio bianco al centro verticale */
+    left: 50%; /* Posiziona il cerchio bianco al centro orizzontale */
+    transform: translate(-50%, -50%); /* Sposta il cerchio bianco al centro dell'icona */
+    z-index: -1; /* Assicura che il cerchio bianco sia dietro l'icona */
+}
+
+/* Media query per schermi fino a 940x */
+@media screen and (max-width: 940px) {
+    .tastoX {
+        left: 90%; /* Modifica la posizione del tasto X per adattarsi alle dimensioni dello schermo */
+        width: 200px;
+        height: 200px;
+    }
+}
+
+
+/* Media query per schermi fino a 768px */
+@media screen and (max-width: 768px) {
+    .tastoX {
+        left: 90%; /* Modifica la posizione del tasto X per adattarsi alle dimensioni dello schermo */
+        width: 36px;
+        height: 36px;
+    }
+}
+
+/* Media query per schermi fino a 576px */
+@media screen and (max-width: 576px) {
+    .tastoX {
+        left: 88%; /* Modifica la posizione del tasto X per adattarsi alle dimensioni dello schermo */
+    }
+}
+
+/* fine gestione sidebars */
+
+/* gestione dadi */
+
+.rollContainer{
+    cursor: pointer;
+    width: 30%;
+    height: 60%;
+    border: none;
+    background-color: rgba(51, 51, 51, 0.8);
+    align-self: center;
+}
+
+#d4{
+    background-image: url('../img/d4.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#d6{
+    background-image: url('../img/d6.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#d8{
+    background-image: url('../img/d8.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#d10{
+    background-image: url('../img/d10.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#d12{
+    background-image: url('../img/d12.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#d20{
+    background-image: url('../img/d20.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#d100{
+    background-image: url('../img/d100.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+@keyframes ruotaD4 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  .ruota {
+    animation: ruotaD4 0.5s linear forwards;
+  }
+
+/* fine gestione dadi */
+
+/* bottoni per aprire le sidebars */
+#sidebarButton {
+    background-color: #333;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/Logo_4.png');
+    background-size: contain;
+    border: none;
+}
+
+#sidebarButton2 {
+    background-color: #333;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-image: url('../img/DADO.png');
+    background-size: contain;
+    border: none;
+}
+/* fine bottoni per aprire le sidebars */
+
+/* bottoni navigazione */
+.btn {
+    background-color: #333;
+    border: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .btn > a{
+    text-decoration: none;
+    color: #ad874f;
+    font-family: MentorSansStd !important;
+  }
+  a {
+    text-decoration: none;
+    color: #ad874f;
+    font-family: MentorSansStd !important;
+  }
+  a > span{
+  	font-family: MentorSansStd !important;
+  }
+/* fine bottoni navigazione */
+
+/* menu contestuale token */
+#tokenMenu{
+    position: absolute;
+    height: 400px;
+    width: 750px;
+    background-color: rgba(51, 51, 51, 0.8);
+    color: #ad874f;
+    z-index: 10;
+}
+
+#tokenMenu > img{
+    width: 100%;
+    height: 100%;
+}
+/* fine menu contestuale token */
+
+/* prova popup roll dadi */
+#popupRisultato {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  #risultatoRoll{
+    font-size: x-large;
+  }
+  
+  #popupContenuto {
+    color: black;
+    background-color: #F5DEB3;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  /* dialogo conferma eliminazione */
+  #confermaEliminazione{
+    display: none;
+    position: absolute;
+    border: 3px solid #8B4513;
+    color: black;
+    background-color: #F5DEB3;    padding: 10px;
+    z-index: 999;
+    font-family: MentorSansStd;
+    font-size: 16px;
+    border-radius: 6px;
+  }
+
+  #confermaEliminazione > button{
+    width: 50px;
+    height: 30px;
+    font-family: MentorSansStd;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 3px solid #8B4513; /* Marrone scuro */
+    background-color: #6f3003; /* Wheat */
+    color: #8B4513; /* Marrone scuro */
+    text-align: center;
+    color: #fff;
+}
+
+
+/* Aggiunte per rendere le select responsive */
+@media only screen and (max-width: 768px) {
+    /* Riduci la larghezza delle select */
+    .styleSelect {
+        width: 80%; /* Modifica la larghezza a tuo piacimento */
+    }
+
+    /* Riduci le dimensioni del font per adattarsi agli schermi più piccoli */
+    .styleSelect {
+        font-size: 14px;
+    }
+}
+/* Aggiunte per rendere i tasti sidebar responsive */
+@media only screen and (max-width: 768px) {
+    #sidebarButton,
+    #sidebarButton2 {
+        width: 30px; /* Modifica la larghezza a tuo piacimento */
+        height: 30px; /* Modifica l'altezza a tuo piacimento */
+    }
+}
+
+/* Stili per la finestra dei comandi */
+#finestraComandi {
+    align-items: center;
+    opacity: 0;
+    z-index: -9999;
+    margin: 0;
+    position: fixed; /* Cambiato in "fixed" */
+    border-radius: 6px;
+    top: 10%; /* Impostato al 50% rispetto al viewport */
+    left: 30%; /* Impostato al 50% rispetto al viewport */
+    /* transform: translate(-50%, -50%); */
+}
+
+#finestraComandi > * {
+    font-size: 18px;
+}
+
+ul {
+    color: #8B4513;
+    padding-left: 20px;
+    margin: 0;
+}
+
+/* Media query per adattare la finestra dei comandi e la lista dei comandi per schermi di dimensioni inferiori */
+@media only screen and (max-width: 768px) {
+    #finestraComandi {
+        top: 15%;
+    }
+
+    #finestraComandi > * {
+        font-size: 14px;
+    }
+}
+
+/* mediaquery per provare ad aggiustare la visibilità da larghezza di 540px in giù */
+@media only screen and (max-width: 540px) {
+    #sidebarButton, #sidebarButton2{
+        height: 30px;
+        width: 30px;
+    }
+
+    #nav{
+        max-width: 100%;
+        overflow: auto;
+    }
+
+    #nav > .btn{
+        padding: 5px;
+    }
+
+}
+
+/* mediaquery per ridimensionare la scheda del token in landscape */
+@media only screen and (max-width: 940px) and (orientation: landscape) {
+    #tokenMenu{
+        height: 300px;
+        width: 550px;
+    }
+
+    #finestraComandi{
+        top: 20%;
+        overflow: auto;
+        padding: 0;
+        max-height: 300px;
+    }
+}
+
+@media only screen and (max-width: 740px) and (orientation: landscape) {
+    #tokenMenu{
+        height: 200px;
+        width: 350px;
+    }
+
+    #finestraComandi{
+        top: 20%;
+        overflow: auto;
+        padding: 0;
+        max-height: 300px;
+    }
+}
+
+#sceltaBuilder{
+   position: absolute;
+   display: grid;
+   grid-template-rows: 1fr 1fr;
+   height: 70px;
+   width: 200px;
+   top: 0px;
+   left: 0px;
+   background-color: #333;
+   display: none;
+   border: 3px solid #ad874f;
+   border-radius: 5px;
+   z-index: -9999;
+}
+
+#sceltaBuilder a{
+   text-decoration: none;
+   font-size: 22px;
+   color: #fff;
+   text-shadow: 2px 2px 5px black;
+   font-family: MentorSansStd;
+}
+
+#sceltaBuilder a:hover{
+   color: gold;
+   transition: 1s linear;
+}
+
+#buildertag{
+	color: #ad874f;
+	font-family: MentorSansStd !important;
+}
+
+#disclaimer{
+	color: red;
+}
