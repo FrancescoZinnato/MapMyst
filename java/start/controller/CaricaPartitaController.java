@@ -27,10 +27,10 @@ public class CaricaPartitaController {
 	CreaturaDAO serviceCreatura;
 	
 	@GetMapping("/caricaPartita/{nomePartita}")
-	public PartitaDaCaricare caricaPartita(@PathVariable String nomePartita, HttpSession session) {
+	public Partita caricaPartita(@PathVariable String nomePartita, HttpSession session) {
 		Utente utente = (Utente) session.getAttribute("utente");
-		Partita p = servicePartita.recuperaPartitaNomeUtente(nomePartita, utente);
-		PartitaDaCaricare partita = new PartitaDaCaricare(p.getMappa(), p.getGriglia());
+		Partita partita = servicePartita.recuperaPartitaNomeUtente(nomePartita, utente);
+		session.setAttribute("partita", partita);
 		return partita;
 	}
 	
