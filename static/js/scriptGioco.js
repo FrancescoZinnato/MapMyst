@@ -266,16 +266,6 @@ function mappaUtenteSelector(){
 	$(this).val('vuoto');
 }
 
-function apriCestino(){
-$('#cestinoToken').css('z-index', '9999');
-$('#cestinoToken').css('opacity', '0.9');
-}
-
-function chiudiCestino(){
-$('#cestinoToken').css('z-index', '-9999');
-$('#cestinoToken').css('opacity', '0');
-}
-
 function apriSidebarDestra(){
 var valoreOpacity = $('#sidebar').css('opacity');
 var sidebar = $('#sidebar');
@@ -412,6 +402,12 @@ function associaFunzioniAiToken() {
           },
           drag: function(event, ui) {
               console.log("Trascinamento in corso");
+                tokenCaricato.css({
+                  left: '',
+                  top: '',
+                  transform: '',
+                  'z-index': '99999'
+                });
           },
           stop: function(event, ui) {
               console.log("Fine trascinamento");
@@ -500,6 +496,12 @@ function riassegnaDroppable() {
 //Avvio delle funzioni quando il documento è completamente caricato
 $(document).ready(function () {
 	
+associaFunzioniAiToken();
+
+
+riassegnaDroppable();
+	
+	
 $('#apriComandi').on('click', apriComandi);
 
 
@@ -507,12 +509,6 @@ $("#mostroSelector").on("change", tokenSelectorMostro);
 
 
 $("#avventurieroSelector").on("change", tokenSelectorAvventuriero);
-
-
-$('#apriCestino').on('click', apriCestino);
-
-
-$('#cestinoToken').on('mouseleave', chiudiCestino);
 
 
 $("#backgroundSelector").on("change", mappaSelector);
@@ -541,9 +537,12 @@ $("#popupChiudi").on("click", function() {
   $('#sidebar2').css('z-index', '-9999');
 });
 
+
 $('#popupRisultato').hide();
 
+
 aggiungiRollDadi(dadi);
+
 
 $('#confermaEliminaToken').on('click', function(){
   if(tokenGlobale !== null){
@@ -553,24 +552,31 @@ $('#confermaEliminaToken').on('click', function(){
   }
 })
 
+
 $('#annullaEliminaToken').on('click', function(){
   tokenGlobale = null;
   $('#confermaEliminazione').css('display', 'none');
 })
 
+
 $('#chiudiComandi').on('click', chiudiComandi);
 
+
 $('#bottoneSalva').on('click', inserisciValoriSalvataggio);
+
 
 $('#annullaSalva').on('click', function(e){
   e.preventDefault();
 })
 
+
 $('#annullaCarica').on('click', function(e){
   e.preventDefault();
 })
 
+
 $('#confermaCarica').on('click', caricaPartitaSalvata);
+
 
 $('#dropbuilder').on('click', function(e){
   if($('#sceltaBuilder').css("display") == "none"){
@@ -587,6 +593,7 @@ $('#dropbuilder').on('click', function(e){
   })
   }
 });
+
 
 $('#sceltaBuilder').on('mouseleave', function(){
   $('#sceltaBuilder').css({
