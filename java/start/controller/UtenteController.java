@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import start.dao.UtenteDAO;
+import start.model.Partita;
 import start.model.Utente;
 import start.model.ValidazioneUtente;
 
@@ -48,6 +49,8 @@ public class UtenteController {
 			session = request.getSession();
 			session.setMaxInactiveInterval(0);
 			session.setAttribute("utente", utente);
+			Partita partita = new Partita();
+			session.setAttribute("partita", partita);
 			return "redirect:/home";
 		}else {
 			return "redirect:/erroreLogin";
@@ -75,6 +78,8 @@ public class UtenteController {
 		session.setMaxInactiveInterval(0);
 		service.inserisciUtente(utente);
 		session.setAttribute("utente", utente);
+		Partita partita = new Partita();
+		session.setAttribute("partita", partita);
 		return "redirect:/home";
 	}
 	
