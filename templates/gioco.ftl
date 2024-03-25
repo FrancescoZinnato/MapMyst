@@ -194,12 +194,20 @@
         <button class="rollContainer" id="d100"></button>
       </div>
       <!-- mappa -->
-      <img id="mappa" src="img/sfondoGioco.png" alt="" />
+      <#if partita.getId() gt 0>
+      <img id="mappa" src="${partita.getMappa()}" alt=""/>
+      <#else>
+      <img id="mappa" src="img/sfondoGioco.png" alt=""/>
+      </#if>
       <!-- griglia di gioco -->
       <div id="grigliaDaSalvare">
-        <div id="contenitoreCaselle">
+      	<#if partita.getId() gt 0>
+      	${partita.getGriglia()}
+        <#else>
+		<div id="contenitoreCaselle">
           
         </div>
+        </#if>
       </div>
       <div id="popupRisultato" class="modal" style="display: none">
         <div id="popupContenuto" class="modal-content">
@@ -245,8 +253,8 @@
             <div class="modal-content">
                   <select id="selezionaPartita" name="partitaSelezionata">
                   	<#if utente.getListaPartite()?size != 0>
-                  	<#list utente.getListaPartite() as partita>
-                    <option value="${partita.getNome()}">${partita.getNome()}</option>
+                  	<#list utente.getListaPartite() as partitas>
+                    <option value="${partitas.getNome()}">${partitas.getNome()}</option>
                     </#list>
                     </#if>
                   </select>
