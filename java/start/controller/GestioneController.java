@@ -45,6 +45,7 @@ public class GestioneController {
 		Partita partita = new Partita(griglia, mappa, nome, utente);
 		utente.getListaPartite().add(partita);
 		servicePartita.inserisciPartita(partita);
+		session.setAttribute("partita", partita);
 		return "redirect:/home";
 	}
 	
