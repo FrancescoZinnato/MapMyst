@@ -2,6 +2,8 @@ package start.model;
 
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @Entity
@@ -17,6 +19,7 @@ public class Partita {
 	private String mappa;
 	@Column (name = "nome", nullable = false)
 	private String nome;
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn (name = "utente", nullable = false)
 	private Utente utente;
